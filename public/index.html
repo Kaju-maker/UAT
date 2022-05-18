@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>UAT, Inicio</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+
+<body>
+
+	<nav class="navbar-nav navbar-expand-sm navbar-dark  justify-content-between align-items-center"
+		style="background-color: #04253A; color: #FFFDEE;">
+		<a class="nav-link" data-toggle="tab" href="#Home" role="tab" aria-controls="home" aria-selected="false" style="margin:0px 10px;">
+			<img src="./resources/logo.svg" width="40" height="40">
+		</a>
+		  
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample"
+			aria-controls="navbarsExample" aria-expanded="true" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse justify-content-end" id="navbarsExample">
+			<ul class="nav navbar-nav" id="myTab" role="tablist">
+				<li class="nav-item active">
+					<a class="nav-link " id="home-tab" data-toggle="tab" href="#Home" role="tab"
+						aria-controls="home" aria-selected="true">Inicio</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="SobreNosotros-tab" data-toggle="tab" href="#SobreNosotros" role="tab" aria-controls="tabla"
+						aria-selected="false">Sobre nosotros</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="Contactanos-tab" data-toggle="tab" href="#Contactanos" role="tab" aria-controls="tabla"
+						aria-selected="false">Contáctanos</a>
+				</li>
+				<div style="margin:10px 5px; border-left:2px solid #FFFDEE;"></div>
+				<li class="nav-item">
+					<a class="nav-link" id="pedidos-tab" data-toggle="tab" href="#Table" role="tab" aria-controls="tabla"
+						aria-selected="false">Pedidos</a>
+				</li>
+				<li class="nav-item dropdown" id="service-tab">
+					<a class="nav-link dropdown-toggle " href="#!" id="dropdownEx" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">Usuario</a>
+					<div class="dropdown-menu" aria-labelledby="dropdownEx" style="background-color:#04253A;">
+						<a class="dropdown-item" href="#!" data-toggle="tab" style="color: #FFFDEE;">Perfil</a>
+						<a class="dropdown-item" href="#!" data-toggle="tab" style="color: #FFFDEE;">Cerrar sesión</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="tab-content" id="myTabConent" style="background-color: #FFFDEE;" >
+		<!--Página de Inicio-->
+		<div class="tab-pane fade show active" id="Home" role="tabpanel" aria-labelledby="home-tab">
+			<div style="background-color:#FFFDEE;height:30px;"></div>
+			<div class="container-fluid">			
+				<div class="row justify-content-around" style="background-color:#187F75;">
+					<div class="col-sm-16" style="margin:5% 1% 5% 1%">
+						<h1 id="tituloPublicidad">Tienda Online <br>de arte personalizado</h1><br>
+						<button id="buttonComprarAhora" style="background-color:#FFFDEE; font-weight: bold; color:#187F75;border:none; padding: 3px 15px;">¡Comprar ahora!</button>
+					</div>
+					<div class="col-sm-16" style="margin:6% 1% 2% 1%">
+						<h4 id="textoPublicidad" style="text-align:center;color:#FFFFFF;">¿Quieres darle un toque especial a tus espacios?<br>
+							Llegaste al lugar indicado, tú lo imaginas<br> y nosotros lo creamos.<br>
+							¡Qué esperas para hacer tu primer pedido!<br><br></h4>
+					</div>
+				</div>
+			
+				<div id="novedades" style="margin-top: 2%;margin-left: 2%;">
+					<h1 id="tituloNovedades" style="margin-bottom: 2%;">Novedades</h1>
+					<div id="zonaImagenes">
+						<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner">
+							<div class="carousel-item active">
+									<div class="container">
+										<div class="row justify-content-around align-items-center">
+											<div class="card" style="width: 16rem; background-color: #FFFDEE;">
+												<div class="card bg-dark text-white">
+													<img src="./resources/Estilos.jpg" class="card-img" alt="...">
+													<div class="card-img-overlay">
+													<h5 class="card-title">Card title</h5>
+													<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+													<p class="card-text">Last updated 3 mins ago</p>
+													</div>
+												</div>
+												<div class="card-body rounded" style="margin:2%; background-color:#187F75;" >
+												<h5 class="card-title">Card title</h5>
+												</div>
+											</div>
+											<div class="card" style="width: 16rem; background-color: #FFFDEE;">
+												<div class="card bg-dark text-white">
+													<img src="./resources/Estilos.jpg" class="card-img" alt="...">
+													<div class="card-img-overlay">
+													<h5 class="card-title">Card title</h5>
+													<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+													<p class="card-text">Last updated 3 mins ago</p>
+													</div>
+												</div>
+												<div class="card-body rounded" style="margin:2%; background-color:#187F75;" >
+												<h5 class="card-title">Card title</h5>
+												</div>
+											</div>
+											<div class="card" style="width: 16rem; background-color: #FFFDEE;">
+												<div class="card bg-dark text-white">
+													<img src="./resources/Estilos.jpg" class="card-img" alt="...">
+													<div class="card-img-overlay">
+													<h5 class="card-title">Card title</h5>
+													<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+													<p class="card-text">Last updated 3 mins ago</p>
+													</div>
+												</div>
+												<div class="card-body rounded" style="margin:2%; background-color:#187F75;" >
+												<h5 class="card-title">Card title</h5>
+												</div>
+											</div>
+											<div class="card" style="width: 16rem; background-color: #FFFDEE;">
+												<div class="card bg-dark text-white">
+													<img src="./resources/Estilos.jpg" class="card-img" alt="...">
+													<div class="card-img-overlay">
+													<h5 class="card-title">Card title</h5>
+													<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+													<p class="card-text">Last updated 3 mins ago</p>
+													</div>
+												</div>
+												<div class="card-body rounded" style="margin:2%; background-color:#187F75;" >
+												<h5 class="card-title">Card title</h5>
+												</div>
+											</div>
+									
+										</div>
+									</div>	
+							</div>
+							<div class="carousel-item">
+								<div class="container">
+									<div class="row justify-content-around align-items-center">
+										<div class="card" style="width: 16rem; background-color: #FFFDEE;">
+											<div class="card bg-dark text-white">
+												<img src="./resources/Estilos.jpg" class="card-img" alt="...">
+												<div class="card-img-overlay">
+												<h5 class="card-title">Card title</h5>
+												<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+												<p class="card-text">Last updated 3 mins ago</p>
+												</div>
+											</div>
+											<div class="card-body rounded" style="margin:2%; background-color:#187F75;" >
+											<h5 class="card-title">Card title</h5>
+											</div>
+										</div>
+										<div class="card" style="width: 16rem; background-color: #FFFDEE;">
+											<div class="card bg-dark text-white">
+												<img src="./resources/Estilos.jpg" class="card-img" alt="...">
+												<div class="card-img-overlay">
+												<h5 class="card-title">Card title</h5>
+												<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+												<p class="card-text">Last updated 3 mins ago</p>
+												</div>
+											</div>
+											<div class="card-body rounded" style="margin:2%; background-color:#187F75;" >
+											<h5 class="card-title">Card title</h5>
+											</div>
+										</div>
+										<div class="card" style="width: 16rem; background-color: #FFFDEE;">
+											<div class="card bg-dark text-white">
+												<img src="./resources/Estilos.jpg" class="card-img" alt="...">
+												<div class="card-img-overlay">
+												<h5 class="card-title">Card title</h5>
+												<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+												<p class="card-text">Last updated 3 mins ago</p>
+												</div>
+											</div>
+											<div class="card-body rounded" style="margin:2%; background-color:#187F75;" >
+											<h5 class="card-title">Card title</h5>
+											</div>
+										</div>
+										<div class="card" style="width: 16rem; background-color: #FFFDEE;">
+											<div class="card bg-dark text-white">
+												<img src="./resources/Estilos.jpg" class="card-img" alt="...">
+												<div class="card-img-overlay">
+												<h5 class="card-title">Card title</h5>
+												<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+												<p class="card-text">Last updated 3 mins ago</p>
+												</div>
+											</div>
+											<div class="card-body rounded" style="margin:2%; background-color:#187F75;" >
+											<h5 class="card-title">Card title</h5>
+											</div>
+										</div>
+									</div>
+								</div>	
+							</div>
+							<div class="carousel-item">
+								<div class="container">
+									<div class="row justify-content-around align-items-center">
+										<div class="card" style="width: 16rem; background-color: #FFFDEE;">
+											<div class="card bg-dark text-white">
+												<img src="./resources/Estilos.jpg" class="card-img" alt="...">
+												<div class="card-img-overlay">
+												<h5 class="card-title">Card title</h5>
+												<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+												<p class="card-text">Last updated 3 mins ago</p>
+												</div>
+											</div>
+											<div class="card-body rounded" style="margin:2%; background-color:#187F75;" >
+											<h5 class="card-title">Card title</h5>
+											</div>
+										</div>
+										<div class="card" style="width: 16rem; background-color: #FFFDEE;">
+											<div class="card bg-dark text-white">
+												<img src="./resources/Estilos.jpg" class="card-img" alt="...">
+												<div class="card-img-overlay">
+												<h5 class="card-title">Card title</h5>
+												<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+												<p class="card-text">Last updated 3 mins ago</p>
+												</div>
+											</div>
+											<div class="card-body rounded" style="margin:2%; background-color:#187F75;" >
+											<h5 class="card-title">Card title</h5>
+											</div>
+										</div>
+										<div class="card" style="width: 16rem; background-color: #FFFDEE;">
+											<div class="card bg-dark text-white">
+												<img src="./resources/Estilos.jpg" class="card-img" alt="...">
+												<div class="card-img-overlay">
+												<h5 class="card-title">Card title</h5>
+												<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+												<p class="card-text">Last updated 3 mins ago</p>
+												</div>
+											</div>
+											<div class="card-body rounded" style="margin:2%; background-color:#187F75;" >
+											<h5 class="card-title">Card title</h5>
+											</div>
+										</div>
+										<div class="card" style="width: 16rem; background-color: #FFFDEE;">
+											<div class="card bg-dark text-white">
+												<img src="./resources/Estilos.jpg" class="card-img" alt="...">
+												<div class="card-img-overlay">
+												<h5 class="card-title">Card title</h5>
+												<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+												<p class="card-text">Last updated 3 mins ago</p>
+												</div>
+											</div>
+											<div class="card-body rounded" style="margin:2%; background-color:#187F75;" >
+											<h5 class="card-title">Card title</h5>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							</div>
+						<button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev" style="border: none; background-color:transparent; border-radius: 20rem;">
+							<span  aria-hidden="true"><img src="./resources/izquierdaaa.svg" width="500%"></span>
+							<span class="sr-only">Previous</span>
+							</button>
+							<button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next" style="border: none; background-color:transparent; border-radius: 20rem;">
+							<span  aria-hidden="true"><img src="./resources/derechaaaOtro.svg" width="50%"></span>
+							<span class="sr-only">Next</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="background-color:#FFFDEE;height:30px;"></div>
+		</div>
+
+		<!--Página Sobre Nosotros-->
+		<div class="tab-pane fade" id="SobreNosotros" role="tabpanel" aria-labelledby="SobreNosotros-tab">
+			<div style="background-color:#FFFDEE;height:30px;"></div>
+			<div class="row justify-content-between align-items-center" style="background-color:#FFFDEE;">
+				<div class="col-sm-7" style="background-color:#187F75;" >
+					<div class="row justify-content-between align-items-center" style="margin:5% 1% 5% 1%;">
+						<div class="col-sm-7">
+							<h4 id="textoDescripcion" style="text-align:center;color:#FFFFFF;">
+								Somos un grupo de artistas dispuestos a darle un<br>
+								toque especial a tus espacios. Aquí encontrarás un<br>
+								lugar donde plasmar todo aquello que imaginas al estilo que desees.<br>
+							</h4>
+						</div>
+						<div class="col-sm-5" style="display:flex; justify-content:center;">
+							<button id="buttonComprarAhora" style="background-color:#FFFDEE; font-weight: bold; color:#187F75;border:none; padding: 3px 15px;">¡Comprar ahora!</button>
+						</div>		
+					</div>					
+				</div>
+				<div class="col-sm-5" >
+					<div class="row justify-content-center align-items-center" style="margin:5% 1% 5% 1%;">
+						<div class="col-sm-12 text-center">
+							<img src="./resources/logo-letras.svg" width="50%" alt="">
+						</div>
+						<p style="text-align:center;">Tú lo imaginas, nosotros lo creamos.</p>
+					</div>
+				</div>
+				<div class="col-sm-12" style="margin:6% 1% 2% 1%">
+					<div class="row justify-content-center align-items-center">
+						<h5 id="textoBiografia" style="text-align:center;color:#04253A">
+							<strong>Unique Art</strong> se fundó en el 2021 con la ayuda de estudiantes universitarias que cursaban<br>
+							Ingeniería en Multimedia. Se tenía la idea de generar un <u>producto innovador</u> que se fue<br>
+							desarrollando con la ayuda de las docentes Ada Echávez y Karin Marroquín.<br>
+						</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--Página Contáctanos-->
+		<div class="tab-pane fade" id="Contactanos" role="tabpanel" aria-labelledby="Contactanos-tab">
+			<div style="background-color:#FFFDEE;height:30px;"></div>
+			<div class="row justify-content-center align-items-center" style="background-color:#FFFDEE;">		
+				<div class="col-sm-8 rounded-pill" style="background-color:#04253A;" >
+					<div class="row justify-content-start">
+						<div class="col-sm-7">
+							<ul class="list-unstyled mb-0">
+								<li>
+									<a href="#!" class="text-white">¿Quieres trabajar como artista?</a>
+								</li>
+								<li>
+									<a href="#!" class="text-white">Contáctanos: +57 000-000-000</a>
+								</li>
+								<li>
+									<a href="#!" class="text-white">Avenida #7 73c-No, Cajicá</a>
+								</li>
+							</ul>
+						</div>
+						<div style="margin:10px 2px; border-left:2px solid #FFFDEE;"></div>
+						<div class="col-sm-4">
+							<section class="mb-4"><br>
+								<!-- Facebook -->
+								<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+									<i class="fab fa-twitter"></i>@Unique Art
+								</a>
+									<!-- Google -->
+								<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+									><i class="fab fa-google"></i>Unique Art
+								</a>
+								<!-- Instagram -->
+								<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+								><i class="fab fa-instagram"I></i>@Unique Art
+								</a>
+								<!-- Instagram -->
+								<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+								><i class="icon-Twitter"I></i>Unique Art
+								</a>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="background-color:#FFFDEE;height:30px;"></div>
+		</div>
+
+		<div class="tab-pane fade" id="Table" role="tabpanel" aria-labelledby="table-tab">
+			<div class="table-responsive">
+				<table class="table table-dark table-striped"  id="dataTable">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Apellido</th>
+							<th>Correo</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="danger">
+							<td>Danger</td>
+							<td>Moe</td>
+							<td>mary@example.com</td>
+						</tr>
+						<tr class="info">
+							<td>Info</td>
+							<td>Dooley</td>
+							<td>july@example.com</td>
+						</tr>
+						<tr class="warning">
+							<td>Warning</td>
+							<td>Refs</td>
+							<td>bo@example.com</td>
+						</tr>
+						<tr class="active">
+							<td>Active</td>
+							<td>Activeson</td>
+							<td>act@example.com</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+
+
+	
+	
+	<footer class=" text-center text-white" style="background-color: #04253A; color: #FFFDEE;border-radius:25px 25px 0px 0px; ">
+		
+		<div class="container-md">
+			<div style="height:30px;"></div>
+			<!-- Section: Links -->
+			<section class="">
+			<!--Grid row-->
+				<div class="row justify-content-between">
+					
+				<!--Grid column-->
+				<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+					<div style="height:30px;"></div>
+					<ul class="list-unstyled mb-0">
+						<li>
+							<a href="#!" class="text-white">¿Quieres trabajar como artista?</a>
+						</li>
+						<li>
+							<a href="#!" class="text-white">Contáctanos: +57 000-000-000</a>
+						</li>
+						<li>
+							<a href="#!" class="text-white">Avenida #7 73c-No, Cajicá</a>
+						</li>
+					</ul>
+				</div>
+				<!--Grid column-->
+				<div style="margin:10px 2px; border-left:2px solid #FFFDEE;"></div>
+				<!--Grid column-->
+				<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+					<h5 >Síguenos en nuestras redes sociales</h5>	  
+					<!-- Section: Social media -->
+					<section class="mb-4"><br>
+						<!-- Facebook -->
+						<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+							<i class="fab fa-twitter"></i>
+						</a>
+							<!-- Google -->
+						<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+							><i class="fab fa-google"></i>
+						</a>
+						<!-- Instagram -->
+						<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+						><i class="fab fa-instagram"I></i>
+						</a>
+						<!-- Instagram -->
+						<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+						><i class="icon-Twitter"I></i>
+						</a>
+					</section>
+				</div>
+				<!--Grid column-->
+				<div style="margin:10px 2px; border-left:2px solid #FFFDEE;"></div>
+				<!--Grid column-->
+				<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+					<div style="height:30px;"></div>
+					<ul class="list-unstyled mb-0">
+					<li>
+						<a href="#!" class="text-white">Términos y condiciones</a>
+					</li>
+					<li>
+						<a href="#!" class="text-white">Peticiones y reclamos</a>
+					</li>
+					<li>
+						<a href="#!" class="text-white">Preguntas frecuentes</a>
+					</li>
+					</ul>
+				</div>
+				<!--Grid column-->
+
+				</div>
+			<!--Grid row-->
+			</section>
+			<div style="height:30px;"></div>
+		  <!-- Copyright -->
+		  <div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.2);">
+		    © 2022 Copyright: <br>Karen Juliana Rincón, Tatiana Gómez Castillo
+		  </div>
+	</footer>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+	crossorigin="anonymous"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3zQkTX_la0nl6ZD-EnIQzKCt5g5sfW08" async defer></script>
+<script src="js/producto.js"></script>
+
+</html>
