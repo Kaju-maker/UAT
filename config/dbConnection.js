@@ -8,7 +8,7 @@
         host:  'localhost',
         user: 'root',
         password: '',
-        database: 'tiendavirtual'
+        database: 'uattiendavirtual'
     });
 
     dbConn.connect(function(err){

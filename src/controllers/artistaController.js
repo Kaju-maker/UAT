@@ -1,9 +1,9 @@
 'use strict';
-const producto = require('../models/producto');
+const artista = require('../models/artista');
 
 exports.readAll = function (req, res){
 
-  producto.readAll((err, data) =>{
+  artista.readAll((err, data) =>{
     if (err)
       res.status(500).send({
         message:
@@ -14,19 +14,19 @@ exports.readAll = function (req, res){
 };
 
 exports.create = function (req, res){
-  const productoData=new producto(req.body);
-  var result=producto.create(productoData);
+  const artistaData=new artista(req.body);
+  var result=artista.create(artistaData);
   res.send(result);
 }
 
 exports.update = function (req, res){
-  const productoData=new producto(req.body);
-  var result=producto.update(productoData);
+  const artistaData=new artista(req.body);
+  var result=artista.update(artistaData);
   res.send(result);
 }
 
 exports.delete = function (req, res){
-  const productoData=new producto(req.body);
-  var result=producto.delete(productoData);
+  const artistaData=new artista(req.body);
+  var result=artista.delete(artistaData);
   res.send(result);
 }

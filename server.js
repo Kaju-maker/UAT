@@ -1,7 +1,10 @@
 'use strict';
 var express = require('express');
 var bodyparser=require('body-parser');
-var routes=require('./src/routes/productoRoutes');
+var aRoutes=require('./src/routes/artistaRoutes');
+var cRoutes=require('./src/routes/clienteRoutes');
+var caRoutes=require('./src/routes/catalogoRoutes');
+var pRoutes=require('./src/routes/pedidoRoutes');
 
 var app=express();
 
@@ -10,7 +13,10 @@ app.use(bodyparser.json({limit: '10mb'}));
 
 app.use(express.static(__dirname+ '/public'));
 
-routes.assignRoutes(app);
+aRoutes.assignRoutes(app);
+cRoutes.assignRoutes(app);
+caRoutes.assignRoutes(app);
+pRoutes.assignRoutes(app);
 
 app.listen(3000);
 
