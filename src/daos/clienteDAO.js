@@ -2,6 +2,7 @@
 var dbConn=require('../../config/dbConnection');
 
 const CONSULTA="SELECT c.correo, c.nombre, c.apellido, c.FechaNacimiento, c.Telefono, c.Direccion  FROM cliente c";
+const CONSULTAESP="SELECT c.nombre, c.apellido, c.FechaNacimiento, c.Telefono, c.Direccion  FROM cliente c WHERE correo = ?";
 const INSERT = "INSERT INTO cliente set ?";
 const UPDATE = "UPDATE cliente SET nombre = ?, apellido = ?,FechaNacimiento = ?,Telefono = ?,Direccion = ? WHERE correo = ?";
 const DELETE = "DELETE FROM cliente WHERE correo = ?";
@@ -20,6 +21,20 @@ exports.readAll = function(result){
          }
          });
 }
+
+exports.readOne = function(Cliente,result){
+    dbConn.query (CONSULTAESP, Cliente, function (err, res){
+      if(err){
+        console. log("error: ", err);
+        result(null, err);
+      }else{
+        console.log('cliente:',res);
+        result (null, res);
+      }
+     });
+    return result;
+  }
+
 
 exports.create = (nuevoCliente)=>{
   console.log(nuevoCliente);

@@ -1,8 +1,9 @@
 
 // CLIENTE
 function verificarDatos(data){
-    var correo=$("#correoinicio").val();
-    var contra=$("#claveinicio").val();
+    var correo=document.getElementById("correoinicio").value
+    var contra=document.getElementById("claveinicio").value
+    console.log8(correo,contra);
     var existe=false;
     var claveIncorrecta=false;
     var correoIncorrecto=false;
@@ -51,7 +52,7 @@ function consultarCliente(event){
             if (result.length > 0) {
                 var confirma=cargarDatos(result);
                 if(confirma != true){
-                    event.cancelable;
+                    event.cancelable();
                 }
             } else {
                 console.log(JSON.stringify(result));
@@ -69,6 +70,14 @@ $(document).ready(function(){
         });
 });
 
+$(document).ready(function(){
+    $("#FormInicio").submit(function(event){
+        //Cancels the from submission
+        console.log("entro");
+        consultarCliente(event);
+        event.preventDefault();
+    });
+});
 function submitFormInsert(){
     var nombre=$("#nombre").val();
     var apellido=$("#apellido").val();
