@@ -25,18 +25,6 @@ cliente.readAll= (result) =>{
     });
 };
 
-cliente.readOne= (Cliente,result)=>{
-    clienteDAO.readOne(Cliente,function(err, res){
-        if(err){
-            console.log('error: ', err);
-            result(null, err);
-        }else{
-            console.log('producto:', res);
-            result(null, res);
-        }
-   });
-};
-
 cliente.create= (nuevoCliente)=>{
     console.log(nuevoCliente);
     var result=clienteDAO.create(nuevoCliente); 

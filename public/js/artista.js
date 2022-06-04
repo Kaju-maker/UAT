@@ -1,3 +1,6 @@
+
+var correoLocal=localStorage.getItem("Correo");
+
 //ENTREGAS
 function cargarDatos(data){
     var rows = "";
@@ -18,7 +21,6 @@ function cargarDatos(data){
 
     $("#dataTable").append(rows);
 }
-
 function submitConsulta(){
 	console.log("Entró a llamar");
 	fetch('http://localhost:3000/getPedidos',{
@@ -38,14 +40,43 @@ function submitConsulta(){
 }
 
 //PERFIL
-function submitFormUpdate(correo){
-    var nombre=$("#nombreusuario").val();
-    var apellido=$("#apellidousuario").val();
-    var fechaN=$("#fechaNusuario").val();
-    var telefono=$("#telefonousuario").val();
-    var direccion=$("#direccionusuario").val();
+function consultarArtista(){
+	console.log("Entró a llamar");
+	fetch('http://localhost:3000/getArtistas',{
+	method:	'GET',
+	headers:{
+		'Content-Type' : 'application/json'
+	}
+	}).then(response => response.json())
+        .then(result => {
+            if (result.length > 0) {
+                cargarDatosArtista(result);
+            } else {
+                console.log(JSON.stringify(result));
+            }
+        })
+        .catch(error => console.log('error: ' + error));
+}
+function cargarDatosArtista(data){
+    for (x in data) {
+        if(data[x].Correo==correoLocal){
+            document.getElementById("dropdownEx").textContent=data[x].Nombre;
+            document.getElementById("nombreartista").textContent=data[x].Nombre+" "+data[x].Apellido;
+            console.log(data[x].Nombre+" "+data[x].Apellido);
+            const $select = document.querySelector('#selectEstilo');
+            $select.value = data[x].TipoDeArte;
+            const $select2 = document.querySelector('#selectFormato');
+            $select2.value = data[x].FormatoDeArte;
+            document.getElementById("descripcionArtista").textContent=data[x].Biografia;
+        } 
+    }
+}
+function submitFormUpdate(){
+    var estiloArte=document.getElementById("selectEstilo").value;
+    var formatoArte=document.getElementById("selectFormato").value;
+    var descripcion=document.getElementById("descripcionArtista").textContent;
 
-    var object={"Correo":correo,"Apellido":apellido,"Nombre":nombre,"Telefono":telefono,"Direccion":direccion,"FechaNacimiento":fechaN};
+    var object={"Correo":correoLocal,"TipoDeArte":estiloArte,"Biografia":descripcion,"FormatoDeArte":formatoArte};
     console.log(object);
 
     fetch('http://localhost:3000/updateArtista',{
@@ -64,6 +95,7 @@ function submitFormUpdate(correo){
             console.log(data);
             if(data === "1"){
                 formSuccess("Update");
+                consultarArtista();
             }else{
                 alert("Error al actualizar");
             }
@@ -72,10 +104,8 @@ function submitFormUpdate(correo){
             console.error(err);
         });       
 } 
-
-function submitFormDelete(correo){
-    console.log(correo);
-    var object={"Correo":correo};
+function submitFormDelete(){
+    var object={"Correo":correoLocal};
     fetch('http://localhost:3000/deleteArtista',{
         method: 'DELETE',
         headers:{
@@ -92,6 +122,8 @@ function submitFormDelete(correo){
             console.log(data);
             if(data === "1"){
                 formSuccess("Delete");
+                consultarArtista();
+                location.href = "http://localhost:3000/index.html";
             }else{
                 alert("Error al eliminar");
             }
@@ -136,3 +168,24 @@ function submitFormUpdate(correo){
             console.error(err);
         });       
 } 
+
+//CERRAR SESIÓN
+$(document).ready(function(){
+    $("#cerrar").click(function(event){
+        localStorage.removeItem('Correo');
+    });
+});
+
+//ALERTAS
+function formSuccess(proceso){
+    if(proceso=="Insert"){
+        alert("Producto registrado correctamente.");
+    }
+    if(proceso=="Update"){
+        alert("Producto actualizado correctamente.");
+    }
+    if(proceso=="Delete"){
+        alert("Producto eliminado correctamente.");
+    }
+	
+}

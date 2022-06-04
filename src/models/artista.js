@@ -11,6 +11,8 @@ var artista=function(artista){
     this.Telefono=artista.Telefono;
     this.FechaNacimiento=artista.FechaNacimiento;
     this.TipoDeArte=artista.TipoDeArte;
+    this.FormatoDeArte=artista.FormatoDeArte;
+    this.Biografia=artista.Biografia;
 }
 
 artista.readAll= (result) =>{

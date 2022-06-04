@@ -2,11 +2,13 @@
 
 var catalogoDAO=require('../daos/catalogoDAO');
 
-var catalogo=function(catalogo){
-    this.IdCatalogo=catalogo.IdCatalogo;
-    this.TipoDeArte=catalogo.TipoDeArte;                    
-    this.NumeroObras=catalogo.NumeroObras;
-    this.Precio=catalogo.Precio;
+var catalogo=function(Catalogo){
+    this.IdCatalogo=Catalogo.IdCatalogo;
+    this.TipoDeArte=Catalogo.TipoDeArte;                    
+    this.Precio=Catalogo.Precio;
+    this.fk_artista=Catalogo.fk_artista; 
+    this.IdObra=Catalogo.IdObra;
+    this.ImagenObra=Catalogo.ImagenObra;
 }
 
 catalogo.readAll= (result) =>{
@@ -24,6 +26,12 @@ catalogo.readAll= (result) =>{
 catalogo.create= (nuevoCatalogo)=>{
     console.log(nuevoCatalogo);
     var result=catalogoDAO.create(nuevoCatalogo); 
+    return result;
+};
+
+catalogo.createObra= (nuevaObra)=>{
+    console.log(nuevaObra);
+    var result=catalogoDAO.createObra(nuevaObra); 
     return result;
 };
 

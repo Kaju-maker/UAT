@@ -19,6 +19,12 @@ exports.create = function (req, res){
   res.send(result);
 }
 
+exports.createObra = function (req, res){
+  const catalogoData=new catalogo(req.body);
+  var result=catalogo.createObra(catalogoData);
+  res.send(result);
+}
+
 exports.update = function (req, res){
   const catalogoData=new catalogo(req.body);
   var result=catalogo.update(catalogoData);

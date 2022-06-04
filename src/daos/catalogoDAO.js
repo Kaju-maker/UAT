@@ -1,10 +1,11 @@
 'use strict';
 var dbConn=require('../../config/dbConnection');
 
-const CONSULTA="SELECT c.correo, c.nombre, c.apellido, c.FechaNacimiento, c.Telefono, c.Direccion  FROM cliente c";
-const INSERT = "INSERT INTO cliente set ?";
-const UPDATE = "UPDATE cliente SET nombre = ?, apellido = ?,FechaNacimiento = ?,Telefono = ?,Direccion = ? WHERE correo = ?";
-const DELETE = "DELETE FROM cliente WHERE correo = ?";
+const CONSULTA="SELECT c.IdCatalogo, c.TipoDeArte, c.Precio, c.fk_artista, o.IdObra, o.ImagenObra, FROM Catalogo c, Obra o WHERE c.IdCatalogo=o.fk_Catalogo";
+const INSERT = "INSERT INTO Catalogo set ?";
+const INSERTOBRA = "INSERT INTO Obra set ?";
+const UPDATE = "UPDATE Catalogo SET TipoDeArte = ?,Precio = ? WHERE fk_artista = ?";
+const DELETE = "DELETE FROM Catalogo WHERE fk_artista = ?";
 
 //select * from obra o, catalogo c where o.fk_Catalogo=c.IdCatalogo and c.fk_artista="correo del artista"
 //select * from obra where IdCatalogo="caltalogo a ver"
@@ -32,10 +33,21 @@ exports.create = (nuevoCatalogo)=>{
   return result;
 }
 
+exports.createObra = (nuevaObra)=>{
+  console.log(nuevaObra);
+  var result="1"; 
+  dbConn.query (INSERTOBRA, nuevaObra, function (err, res){
+    if(err){
+      result="0";
+    }
+   });
+  return result;
+}
+
 exports.update = (Catalogo)=>{
   console.log(Catalogo);
   var result="1"; 
-  dbConn.query (UPDATE, [Cliente.nombre,Cliente.apellido,Cliente.FechaNacimiento,Cliente.Telefono,Cliente.Direccion,Cliente.correo], function (err, res){
+  dbConn.query (UPDATE, [Catalogo.TipoDeArte,Catalogo.Precio,Catalogo.fk_artista], function (err, res){
     if(err){
       result="0";
     }
@@ -46,7 +58,7 @@ exports.update = (Catalogo)=>{
 exports.delete = (Catalogo)=>{
   console.log(Catalogo);
   var result="1"; 
-  dbConn.query (DELETE,[Catalogo.correo], function (err, res){
+  dbConn.query (DELETE,[Catalogo.fk_artista], function (err, res){
     if(err){
       result="0";
     }

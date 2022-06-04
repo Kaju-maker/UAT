@@ -1,3 +1,6 @@
+
+var correoLocal=localStorage.getItem("Correo");
+
 //PEDIDOS
 function cargarDatos(data){
     var rows = "";
@@ -18,7 +21,6 @@ function cargarDatos(data){
 
     $("#dataTable").append(rows);
 }
-
 function submitConsulta(){
 	console.log("Entró a llamar");
 	fetch('http://localhost:3000/getPedidos',{
@@ -38,16 +40,45 @@ function submitConsulta(){
 }
 
 
-
 //PERFIL
-function submitFormUpdate(correo){
+function consultarCliente(){
+	console.log("Entró a llamar");
+	fetch('http://localhost:3000/getClientes',{
+	method:	'GET',
+	headers:{
+		'Content-Type' : 'application/json'
+	}
+	}).then(response => response.json())
+        .then(result => {
+            if (result.length > 0) {
+                cargarDatosCliente(result);
+            } else {
+                console.log(JSON.stringify(result));
+            }
+        })
+        .catch(error => console.log('error: ' + error));
+}
+function cargarDatosCliente(data){
+    for (x in data) {
+        if(data[x].Correo==correoLocal){
+            document.getElementById("dropdownEx").textContent=data[x].Nombre;
+            document.getElementById("nombreusuario").value=data[x].Nombre;
+            document.getElementById("apellidousuario").value=data[x].Apellido;
+            var fecha=data[x].FechaNacimiento;
+            document.getElementById("fechaNusuario").value=fecha.slice(0, 10);
+            document.getElementById("telefonousuario").value=data[x].Telefono;
+            document.getElementById("direccionusuario").value=data[x].Direccion;
+        } 
+    }
+}
+function submitFormUpdate(){
     var nombre=$("#nombreusuario").val();
     var apellido=$("#apellidousuario").val();
     var fechaN=$("#fechaNusuario").val();
     var telefono=$("#telefonousuario").val();
     var direccion=$("#direccionusuario").val();
 
-    var object={"Correo":correo,"Apellido":apellido,"Nombre":nombre,"Telefono":telefono,"Direccion":direccion,"FechaNacimiento":fechaN};
+    var object={"Correo":correoLocal,"Apellido":apellido,"Nombre":nombre,"Telefono":telefono,"Direccion":direccion,"FechaNacimiento":fechaN};
     console.log(object);
 
     fetch('http://localhost:3000/updateCliente',{
@@ -66,6 +97,7 @@ function submitFormUpdate(correo){
             console.log(data);
             if(data === "1"){
                 formSuccess("Update");
+                consultarCliente();
             }else{
                 alert("Error al actualizar");
             }
@@ -74,10 +106,8 @@ function submitFormUpdate(correo){
             console.error(err);
         });       
 } 
-
-function submitFormDelete(correo){
-    console.log(correo);
-    var object={"Correo":correo};
+function submitFormDelete(){
+    var object={"Correo":correoLocal};
     fetch('http://localhost:3000/deleteCliente',{
         method: 'DELETE',
         headers:{
@@ -94,6 +124,8 @@ function submitFormDelete(correo){
             console.log(data);
             if(data === "1"){
                 formSuccess("Delete");
+                consultarCliente();
+                location.href = "http://localhost:3000/index.html";
             }else{
                 alert("Error al eliminar");
             }
@@ -104,6 +136,7 @@ function submitFormDelete(correo){
 } 
 
 
+//ALERTAS
 function formSuccess(proceso){
     if(proceso=="Insert"){
         alert("Producto registrado correctamente.");
@@ -116,5 +149,12 @@ function formSuccess(proceso){
     }
 	
 }
+
+//CERRAR SESIÓN
+$(document).ready(function(){
+    $("#cerrar").click(function(event){
+        localStorage.removeItem('Correo');
+    });
+});
 
     

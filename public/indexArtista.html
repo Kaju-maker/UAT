@@ -9,7 +9,7 @@
 		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 </head>
 
-<body>
+<body onload="consultarArtista()">
 	<!--Barra menú-->
 	<nav class="navbar-nav navbar-expand-sm navbar-dark  justify-content-between align-items-center"
 		style="background-color: #04253A; color: #FFFDEE;">
@@ -46,7 +46,7 @@
 						aria-haspopup="true" aria-expanded="false">Usuario</a>
 					<div class="dropdown-menu" aria-labelledby="dropdownEx" style="background-color:#04253A;">
 						<a class="dropdown-item" id="PerfilArtista-tab" href="#PerfilArtista" data-toggle="tab" style="color: #FFFDEE;">Perfil</a>
-						<a class="dropdown-item"  href="index.html" style="color: #FFFDEE;">Cerrar sesión</a>
+						<a class="dropdown-item"  id="cerrar" href="index.html" style="color: #FFFDEE;">Cerrar sesión</a>
 					</div>
 				</li>
 			</ul>
@@ -90,10 +90,7 @@
 								toque especial a tus espacios. Aquí encontrarás un<br>
 								lugar donde plasmar todo aquello que imaginas al estilo que desees.<br>
 							</h4>
-						</div>
-						<div class="col-sm-5" style="display:flex; justify-content:center;">
-							<button id="buttonComprarAhora" style="background-color:#FFFDEE; font-weight: bold; color:#187F75;border:none; padding: 3px 15px;">¡Comprar ahora!</button>
-						</div>		
+						</div>	
 					</div>					
 				</div>
 				<div class="col-sm-5" >
@@ -257,23 +254,23 @@
 					<div class="col-6">
 						<div style="margin:20px;">
 							<label for="estiloarte" class="h5">Estilo de arte: </label>
-							<select name="estiloarte" style="background: #FFFDEE; border-color:#187F75;border-radius: 10px; padding: 3px;">
-								<option value="e1">Impresionismo</option>
-								<option value="e2" selected>Renancentismo</option>
-								<option value="e3">Abstracto</option>
-								<option value="e4">Surrealismo</option>
-								<option value="e5">Arte pop</option>
-								<option value="e6">Expresionismo</option>
-								<option value="e7">Urbano</option>
-								<option value="e8">Otro</option>
+							<select id="selectEstilo" name="estiloarte" style="background: #FFFDEE; border-color:#187F75;border-radius: 10px; padding: 3px;">
+								<option value="Impresionismo">Impresionismo</option>
+								<option value="Renancentismo" selected>Renancentismo</option>
+								<option value="Abstracto">Abstracto</option>
+								<option value="Surrealismo">Surrealismo</option>
+								<option value="Arte pop">Arte pop</option>
+								<option value="Expresionismo">Expresionismo</option>
+								<option value="Urbano">Urbano</option>
+								<option value="Otro">Otro</option>
 							</select>
 						</div>
 						<div style="margin:20px;">
 							<label for="formatodearte" class="h5">Formato(s) de su arte: </label>
-							<select name="formatodearte" style="background: #FFFDEE; border-color:#187F75;border-radius: 10px; padding: 3px;">
-								<option value="f1">Análogo</option>
-								<option value="f2" selected>Digital</option>
-								<option value="f3">Análogo y Digital</option>						
+							<select id="selectFormato" name="formatodearte" style="background: #FFFDEE; border-color:#187F75;border-radius: 10px; padding: 3px;">
+								<option value="Análogo">Análogo</option>
+								<option value="Digital" selected>Digital</option>
+								<option value="Análogo y Digital">Análogo y Digital</option>						
 							</select>
 						</div>		
 						<div contenteditable="true" id="descripcionArtista" style="margin: 20px; background: #FFFDEE; border:1px solid #f6e77b;border-radius: 10px; padding: 10px;">
@@ -283,8 +280,8 @@
 					
 					<div class="col-12" style="height: 20px;"></div>
 					<div class="col-12 row justify-content-center" >
-						<button onclick="" class="btn btn-warning btn-sm">Actualizar información</button>&nbsp;
-						<button onclick="" class="btn btn-danger btn-sm">Eliminar cuenta</button>
+						<button onclick="submitFormUpdate()" class="btn btn-warning btn-sm">Actualizar información</button>&nbsp;
+						<button onclick="submitFormDelete()" class="btn btn-danger btn-sm">Eliminar cuenta</button>
 					</div>							
 				</div>
 			</div>
@@ -381,5 +378,6 @@
 	integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
 	crossorigin="anonymous"></script>
 <script src="js/artista.js"></script>
+
 
 </html>

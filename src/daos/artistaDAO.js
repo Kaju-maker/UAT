@@ -1,10 +1,10 @@
 'use strict';
 var dbConn=require('../../config/dbConnection');
 
-const CONSULTA="SELECT a.nombre, a.apellido, a.tipoarte, a.biografia, a.formatoarte  FROM artista a";
-const INSERT = "INSERT INTO artista set ?";
-const UPDATE = "UPDATE artista SET nombre = ?, apellido = ?, tipoarte = ?, biografia = ?, formatoarte = ? WHERE correo = ?";
-const DELETE = "DELETE FROM artista WHERE correo = ?";
+const CONSULTA="SELECT a.Correo, a.Nombre, a.Apellido, a.Contrasena, a.TipoDeArte, a.Biografia, a.FormatoDeArte  FROM Artista a";
+const INSERT = "INSERT INTO Artista set ?";
+const UPDATE = "UPDATE Artista SET Nombre = ?, Apellido = ?, TipoDeArte = ?, Biografia = ?, FormatoDeArte = ? WHERE Correo = ?";
+const DELETE = "DELETE FROM Artista WHERE Correo = ?";
 
 //select * from obra o, catalogo c where o.fk_Catalogo=c.IdCatalogo and c.fk_artista="correo del artista"
 //select * from obra where IdCatalogo="caltalogo a ver"

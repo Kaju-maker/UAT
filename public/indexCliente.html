@@ -9,7 +9,7 @@
 		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 </head>
 
-<body>
+<body onload="consultarCliente()">
 	<!--Barra menú-->
 	<nav class="navbar-nav navbar-expand-sm navbar-dark  justify-content-between align-items-center"
 		style="background-color: #04253A; color: #FFFDEE;">
@@ -50,7 +50,7 @@
 						aria-haspopup="true" aria-expanded="false">Usuario</a>
 					<div class="dropdown-menu" aria-labelledby="dropdownEx" style="background-color:#04253A;">
 						<a class="dropdown-item" id="PerfilCliente-tab" href="#PerfilCliente" data-toggle="tab" style="color: #FFFDEE;">Perfil</a>
-						<a class="dropdown-item" href="index.html" style="color: #FFFDEE;">Cerrar sesión</a>
+						<a class="dropdown-item" id="cerrar" href="index.html" style="color: #FFFDEE;">Cerrar sesión</a>
 					</div>
 				</li>
 
@@ -450,8 +450,8 @@
 					</div>										
 				</div>
 				<div class="col-5 row justify-content-center" >
-					<button onclick="" class="btn btn-warning btn-sm">Actualizar información</button>&nbsp;
-					<button onclick="" class="btn btn-danger btn-sm">Eliminar cuenta</button>
+					<button onclick="submitFormUpdate()" class="btn btn-warning btn-sm">Actualizar información</button>&nbsp;
+					<button onclick="submitFormDelete()" class="btn btn-danger btn-sm">Eliminar cuenta</button>
 				</div>
 			</div>
 			
