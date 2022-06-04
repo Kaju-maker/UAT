@@ -16,7 +16,7 @@ exports.readAll = function(result){
            console. log("error: ", err);
            result(null, err);
          }else{
-           console.log('cliente:',res);
+           console.log('Catalogo:',res);
            result (null, res);
          }
          });

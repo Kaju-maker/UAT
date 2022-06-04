@@ -19,7 +19,7 @@ cliente.readAll= (result) =>{
              console.log('error: ', err);
              result(null, err);
          }else{
-             console.log('producto:', res);
+             console.log('Clientes:', res);
              result(null, res);
          }
     });

@@ -16,24 +16,11 @@ exports.readAll = function(result){
            console. log("error: ", err);
            result(null, err);
          }else{
-           console.log('cliente:',res);
+           console.log('Cliente:',res);
            result (null, res);
          }
          });
 }
-
-exports.readOne = function(Cliente,result){
-    dbConn.query (CONSULTAESP, Cliente, function (err, res){
-      if(err){
-        console. log("error: ", err);
-        result(null, err);
-      }else{
-        console.log('cliente:',res);
-        result (null, res);
-      }
-     });
-    return result;
-  }
 
 
 exports.create = (nuevoCliente)=>{

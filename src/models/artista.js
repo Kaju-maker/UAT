@@ -21,7 +21,7 @@ artista.readAll= (result) =>{
              console.log('error: ', err);
              result(null, err);
          }else{
-             console.log('producto:', res);
+             console.log('Artista:', res);
              result(null, res);
          }
     });

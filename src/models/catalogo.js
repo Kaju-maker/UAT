@@ -17,7 +17,7 @@ catalogo.readAll= (result) =>{
              console.log('error: ', err);
              result(null, err);
          }else{
-             console.log('producto:', res);
+             console.log('Catalogo:', res);
              result(null, res);
          }
     });

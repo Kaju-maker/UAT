@@ -15,7 +15,7 @@ exports.readAll = function(result){
            console. log("error: ", err);
            result(null, err);
          }else{
-           console.log('artista:',res);
+           console.log('Artista:',res);
            result (null, res);
          }
          });

@@ -1,10 +1,10 @@
 'use strict';
 var dbConn=require('../../config/dbConnection');
 
-const CONSULTA="SELECT c.correo, c.nombre, c.apellido, c.FechaNacimiento, c.Telefono, c.Direccion  FROM cliente c";
-const INSERT = "INSERT INTO cliente set ?";
-const UPDATE = "UPDATE cliente SET nombre = ?, apellido = ?,FechaNacimiento = ?,Telefono = ?,Direccion = ? WHERE correo = ?";
-const DELETE = "DELETE FROM cliente WHERE correo = ?";
+const CONSULTA="SELECT c.IdPedido, c.Descripcion, c.Precio, c.Color1, c.Color2, c.Color3,c.Color4 ,c.Color5 ,c.FechaEntrega FROM Pedido c";
+const INSERT = "INSERT INTO Pedido set ?";
+const UPDATE = "UPDATE Pedido SET Descripcion = ?, Precio = ?,Color1 = ?, Color2 = ?, Color3 = ?, Color4 = ?, Color5 = ?, FechaEntrega = ? WHERE fk_artista1 = ?";
+const DELETE = "DELETE FROM Pedido WHERE IdPedido = ?";
 
 //select * from obra o, catalogo c where o.fk_Catalogo=c.IdCatalogo and c.fk_artista="correo del artista"
 //select * from obra where IdCatalogo="caltalogo a ver"
@@ -15,7 +15,7 @@ exports.readAll = function(result){
            console. log("error: ", err);
            result(null, err);
          }else{
-           console.log('cliente:',res);
+           console.log('Pedido:',res);
            result (null, res);
          }
          });
@@ -35,7 +35,7 @@ exports.create = (nuevoPedido)=>{
 exports.update = (Pedido)=>{
   console.log(Pedido);
   var result="1"; 
-  dbConn.query (UPDATE, [Cliente.nombre,Cliente.apellido,Cliente.FechaNacimiento,Cliente.Telefono,Cliente.Direccion,Cliente.correo], function (err, res){
+  dbConn.query (UPDATE, [Pedido.Descripcion,Pedido.Precio,Pedido.Color1,Pedido.Color2,Pedido.Color3,Pedido.Color4,Pedido.Color5,Pedido.FechaEntrega,Pedido.fk_artista1], function (err, res){
     if(err){
       result="0";
     }
@@ -46,7 +46,7 @@ exports.update = (Pedido)=>{
 exports.delete = (Pedido)=>{
   console.log(Pedido);
   var result="1"; 
-  dbConn.query (DELETE,[Cliente.correo], function (err, res){
+  dbConn.query (DELETE,[Pedido.IdPedido], function (err, res){
     if(err){
       result="0";
     }

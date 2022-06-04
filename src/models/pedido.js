@@ -2,17 +2,17 @@
 
 var pedidoDAO=require('../daos/pedidoDAO');
 
-var pedido=function(pedido){
-    this.IdPedido=pedido.IdPedido;                    
-    this.Descripcion=pedido.Descripcion;
-    this.Precio=pedido.Precio;
-    this.Color1=pedido.Color1;
-    this.Color2=pedido.Color2;
-    this.Color3=pedido.Color3;
-    this.Color4=pedido.Color4;
-    this.Color5=pedido.Color5;
-    this.Color5=pedido.Color5;
-    this.FechaEntrega=pedido.FechaEntrega;
+var pedido=function(Pedido){
+    this.IdPedido=Pedido.IdPedido;                    
+    this.Descripcion=Pedido.Descripcion;
+    this.Precio=Pedido.Precio;
+    this.Color1=Pedido.Color1;
+    this.Color2=Pedido.Color2;
+    this.Color3=Pedido.Color3;
+    this.Color4=Pedido.Color4;
+    this.Color5=Pedido.Color5;
+    this.Color5=Pedido.Color5;
+    this.FechaEntrega=Pedido.FechaEntrega;
 }
 
 pedido.readAll= (result) =>{
@@ -21,7 +21,7 @@ pedido.readAll= (result) =>{
              console.log('error: ', err);
              result(null, err);
          }else{
-             console.log('producto:', res);
+             console.log('Pedido:', res);
              result(null, res);
          }
     });

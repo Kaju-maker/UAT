@@ -176,7 +176,8 @@ function cargarPerfil(data,fk_artista,imagen){
             break;
         } 
     }
-    activaTab("PerfilArtista");
+    $('#PerfilA').modal('show');
+
 }
 
 
@@ -215,7 +216,7 @@ function cargarDatos(data){
             if(cont=1){            
                 rows += "<tr>";
             }
-            rows +=`<td><button id="${data[x].fk_artista}" onclick="consultarArtistaPerfil(${data[x].fk_artista},${data[x].ImagenObra});" style="border:none; background-color:transparent;"><div class="card" style="width: 16rem; background-color: #FFFDEE;"><div class="card text-white"><img src="${data[x].ImagenObra}" class="card-img" alt="..."><div class="card-img-overlay"><h5 class="card-title">${data[x].TipoDeArte}</h5></div><div class="btncard-body rounded" style="margin:2%; background-color:#187F75;" ><h5 class="row justify-content-center align-items-center" style="color:#04253A">${" $"+Precio}</h5></div></div></div></button></td>`;
+            rows +=`<td><button id="${data[x].fk_artista}" onclick="consultarArtistaPerfil('${data[x].fk_artista}','${data[x].ImagenObra}')" style="border:none; background-color:transparent;"><div class="card" style="width: 16rem; background-color: #FFFDEE;"><div class="card text-white"><img src="${data[x].ImagenObra}" class="card-img" alt="..."><div class="card-img-overlay"><h5 class="card-title">${data[x].TipoDeArte}</h5></div><div class="btncard-body rounded" style="margin:2%; background-color:#187F75;" ><h5 class="row justify-content-center align-items-center" style="color:#04253A">${" $"+Precio}</h5></div></div></div></button></td>`;
             if(cont>=4){       
                 console.log("Entro a cerrar");     
                 rows += "</tr>";
@@ -267,6 +268,7 @@ function formSuccess(proceso){
 
 //ACTIVAR TAB PANE FADE
 function activaTab(tab){
+    console.log("Acá va");
     $('.navbar-nav a[href="#' + tab + '"]').tab('show');
 };
 
