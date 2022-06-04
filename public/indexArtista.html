@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>UAT, Inicio</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+
+<body onload="consultarArtista()">
+	<!--Barra menú-->
+	<nav class="navbar-nav navbar-expand-sm navbar-dark  justify-content-between align-items-center"
+		style="background-color: #04253A; color: #FFFDEE;">
+		<a class="nav-link" data-toggle="tab" href="#Home" role="tab" aria-controls="home" aria-selected="false" style="margin:0px 10px;">
+			<img src="./resources/logo.svg" width="40" height="40">
+		</a>
+		  
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample"
+			aria-controls="navbarsExample" aria-expanded="true" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse justify-content-end" id="navbarsExample">
+			<ul class="nav navbar-nav" id="myTab" role="tablist">
+				<li class="nav-item">
+					<a class="nav-link active" id="home-tab" data-toggle="tab" href="#Home" role="tab"
+						aria-controls="home" aria-selected="true">Inicio</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="SobreNosotros-tab" data-toggle="tab" href="#SobreNosotros" role="tab" aria-controls="SobreNosotros"
+						aria-selected="false">Sobre nosotros</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="Contactanos-tab" data-toggle="tab" href="#Contactanos" role="tab" aria-controls="Contactanos"
+						aria-selected="false">Contáctanos</a>
+				</li>
+				<div style="margin:10px 5px; border-left:2px solid #FFFDEE;"></div>				
+				<li class="nav-item">
+					<a class="nav-link" id="pedidosartista-tab" data-toggle="tab" href="#Table" role="tab" aria-controls="Table"
+						aria-selected="false">Entregas</a>
+				</li>
+				<li class="nav-item dropdown" id="artista-tab">
+					<a class="nav-link dropdown-toggle " href="#!" id="dropdownEx" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">Usuario</a>
+					<div class="dropdown-menu" aria-labelledby="dropdownEx" style="background-color:#04253A;">
+						<a class="dropdown-item" id="PerfilArtista-tab" href="#PerfilArtista" data-toggle="tab" style="color: #FFFDEE;">Perfil</a>
+						<a class="dropdown-item"  id="cerrar" href="index.html" style="color: #FFFDEE;">Cerrar sesión</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<!--Contenido Página-->
+	<div class="tab-content" id="myTabConent" style="background-color: #FFFDEE;" >
+		<!--Página de Inicio-->
+		<div class="tab-pane fade show active" id="Home" role="tabpanel" aria-labelledby="home-tab">
+			<div style="background-color:#FFFDEE;height:30px;"></div>
+			<div class="container-fluid">			
+				<div class="row justify-content-around" style="background-color:#187F75;">
+					<div class="col-sm-16" style="margin:5% 0% 5% 0%">
+						<h1 id="tituloPublicidad" style="font-weight:bold;">Gracias por hacer <br>parte de la familia <br> UAT</h1><br>						
+					</div>
+					<div class="col-sm-16 text-center" style="margin:6% 1% 2% 1%">
+						<h4 id="textoPublicidad" style="text-align:center;color:#FFFFFF;">¡Cuéntanos sobre tu experiencia<br> como artista UAT!</h4>
+						<button id="buttonExperencia" style="background-color:#FFFDEE; font-weight: bold; color:#187F75;border:none; padding: 3px 40px;">Comentar</button>
+					</div>
+				</div>
+			
+				<div class="text-center" id="mensajeBienvenida" style="padding-top: 2%;padding-left: 2%;">
+					<h2 id="frase" style="background: #FFFDEE; margin-bottom: 2%; margin-top: 2%;">"El arte es una aventura que nos lleva a un mundo desconocido.<br>
+						Nuestra tarea como artistas es hacer que la gente vea el mundo<br>
+						tal como lo vemos nosotros."<br>-Mark Rothko</h2>				
+				</div>
+			</div>
+			
+		</div>
+
+		<!--Página Sobre Nosotros-->
+		<div class="tab-pane fade" id="SobreNosotros" role="tabpanel" aria-labelledby="SobreNosotros-tab">
+			<div style="background-color:#FFFDEE;height:30px;"></div>
+			<div class="row justify-content-between align-items-center" style="background-color:#FFFDEE;">
+				<div class="col-sm-7" style="background-color:#187F75;" >
+					<div class="row justify-content-between align-items-center" style="margin:5% 1% 5% 1%;">
+						<div class="col-sm-7">
+							<h4 id="textoDescripcion" style="text-align:center;color:#FFFFFF;">
+								Somos un grupo de artistas dispuestos a darle un<br>
+								toque especial a tus espacios. Aquí encontrarás un<br>
+								lugar donde plasmar todo aquello que imaginas al estilo que desees.<br>
+							</h4>
+						</div>	
+					</div>					
+				</div>
+				<div class="col-sm-5" >
+					<div class="row justify-content-center align-items-center" style="margin:5% 1% 5% 1%;">
+						<div class="col-sm-12 text-center">
+							<img src="./resources/logo-letras.svg" width="50%" alt="">
+						</div>
+						<p style="text-align:center;">Tú lo imaginas, nosotros lo creamos.</p>
+					</div>
+				</div>
+				<div class="col-sm-12" style="margin:6% 1% 2% 1%">
+					<div class="row justify-content-center align-items-center">
+						<h5 id="textoBiografia" style="text-align:center;color:#04253A">
+							<strong>Unique Art</strong> se fundó en el 2021 con la ayuda de estudiantes universitarias que cursaban<br>
+							Ingeniería en Multimedia. Se tenía la idea de generar un <u>producto innovador</u> que se fue<br>
+							desarrollando con la ayuda de las docentes Ada Echávez y Karin Marroquín.<br>
+						</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--Página Contáctanos-->
+		<div class="tab-pane fade" id="Contactanos" role="tabpanel" aria-labelledby="Contactanos-tab">
+			<div style="background-color:#FFFDEE;height:60px;"></div>
+			<div class="row justify-content-center align-items-center" style="background-color:#FFFDEE;">
+				<div class="col-sm-12 text-center" style="font-weight: bold;"><h2>¡Contáctanos!</h2></div>
+				<div class="col-sm-12" style="background-color:#FFFDEE;height:40px;"></div>		
+				<div class="col-sm-8" style="background-color:#04253A;border-radius:5em;" >
+					<div class="row justify-content-center align-items-center">
+						<div class="col-sm-5">
+							<ul class="list-unstyled mb-0">								
+								<li>
+									<a href="#!" class="text-white">Contáctanos: +57 000-000-000</a>
+								</li><br>
+								<li>
+									<a href="#!" class="text-white">Avenida #7 73c-No, Cajicá</a>
+								</li><br>
+								<li>
+									<a href="#!" class="text-white">Correo: uniqueart@gmail.com</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-sm-1 text-center">
+							<div style="background-color:#FFFDEE;height:300px;width: 10px;"></div>
+						</div>
+						<div class="col-sm-3">
+							<section class="mb-4" style="color:#FFFDEE;"><br>
+								<!-- Facebook -->
+								<div class="mb-4">
+									<a class="btn btn-outline-light btn-floating" href="#!" role="button" style="border: none;">
+										<img src="./resources/instagram.svg"  width="25" height="25">
+									</a>@Unique Art
+								</div>
+									<!-- Google -->
+								<div class="mb-4">
+									<a class="btn btn-outline-light btn-floating" href="#!" role="button" style="border: none;"
+									><img src="./resources/facebook.svg"  width="25" height="25">
+									</a>Unique Art
+								</div>
+								
+								<!-- Instagram -->
+								<div class="mb-4">
+									<a class="btn btn-outline-light btn-floating" href="#!" role="button" style="border: none;"
+									><img src="./resources/twitter.svg"  width="25" height="25">
+									</a>@Unique Art
+								</div>							
+								<!-- Instagram -->
+								<div class="mb-4">
+									<a class="btn btn-outline-light btn-floating" href="#!" role="button" style="border: none;"
+									><img src="./resources/gmail.svg"  width="25" height="25">
+									</a>Unique Art
+								</div>								
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="background-color:#FFFDEE;height:30px;"></div>
+		</div>
+
+		<!--Pedidos-->
+		<div class="tab-pane fade" id="Table" role="tabpanel" aria-labelledby="table-tab" style="background-color:#FFFDEE;">
+			<div class="row justify-content-center" >
+				<div class="col-12" style="height:10px;"></div>
+				<h1 class="modal-title" style="color: #04253A;font-weight: bold;border-bottom: 5px solid#187F75; padding:0 20px 0 20px;">Entregas Pendientes</h1>				
+				<div class="col-12" style="height:20px;"></div>
+			</div>
+			<div class="container-sm">
+				<div class="table-responsive">
+					<table class="table table-striped"  id="dataTable" >
+						<thead style="color: #04253A;">
+							<tr>
+								<th>Cliente</th>
+								<th>Descripción obra</th>
+								<th>Precio</th>
+								<th>Fecha de entrega</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="danger">
+								<td>Danger</td>
+								<td>Moe</td>
+								<td>$54315331</td>
+								<td>31/05/77</td>
+							</tr>
+							<tr class="info">
+								<td>Info</td>
+								<td>Dooley</td>
+								<td>$54315331</td>
+								<td>31/05/77</td>
+							</tr>
+							<tr class="warning">
+								<td>Warning</td>
+								<td>Refs</td>
+								<td>$54315331</td>
+								<td>31/05/77</td>
+							</tr>
+							<tr class="active">
+								<td>Active</td>
+								<td>Activeson</td>
+								<td>$54315331</td>
+								<td>31/05/77</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			
+		</div>
+
+		<!--Perfil artista-->
+		<div class="tab-pane fade" id="PerfilArtista" role="tabpanel" aria-labelledby="PerfilArtista-tab" style="background-color:#FFFDEE;">
+			<div class="row justify-content-center" >
+				<div class="col-12" style="height:10px;"></div>
+				<h1 id="nombreartista" class="modal-title" style="color: #04253A;font-weight: bold;border-bottom: 5px solid#187F75; padding:0 20px 0 20px;">Nombre Artista</h1>				
+				<div class="col-12" style="height:20px;"></div>
+			</div>
+			<div class="row justify-content-center align-items-center">
+				<div class="col-md-10 row justify-content-center align-items-center">
+					<div class="col-6 row justify-content-around" id="catalogo">
+						<div class="col-6" >
+							<img scr="" id="ImagenCatalogo1" width="100" height="100" style="border:1px solid#187F75; border-radius:10px;">
+						</div>
+						<div class="col-6">
+							<img scr="" id="ImagenCatalogo2" width="100" height="100" style="border:1px solid#187F75; border-radius:10px;">
+						</div>
+						<div class="col-12" style="height: 20px; ;"></div>
+						<div class="col-6">
+							<img scr="" id="ImagenCatalogo3" width="100" height="100" style="border:1px solid#187F75; border-radius:10px;">
+						</div>
+						<div class="col-6">
+							<img scr="" id="ImagenCatalogo4" width="100" height="100" style="border:1px solid#187F75; border-radius:10px;">
+						</div>
+						<div class="col-12 row justify-content-start" style="padding: 20px;" >
+							<input id="insertarObra" type="file">
+						</div>
+						
+
+					</div>
+					<div class="col-6">
+						<div style="margin:20px;">
+							<label for="estiloarte" class="h5">Estilo de arte: </label>
+							<select id="selectEstilo" name="estiloarte" style="background: #FFFDEE; border-color:#187F75;border-radius: 10px; padding: 3px;">
+								<option value="Impresionismo">Impresionismo</option>
+								<option value="Renancentismo" selected>Renancentismo</option>
+								<option value="Abstracto">Abstracto</option>
+								<option value="Surrealismo">Surrealismo</option>
+								<option value="Arte pop">Arte pop</option>
+								<option value="Expresionismo">Expresionismo</option>
+								<option value="Urbano">Urbano</option>
+								<option value="Otro">Otro</option>
+							</select>
+						</div>
+						<div style="margin:20px;">
+							<label for="formatodearte" class="h5">Formato(s) de su arte: </label>
+							<select id="selectFormato" name="formatodearte" style="background: #FFFDEE; border-color:#187F75;border-radius: 10px; padding: 3px;">
+								<option value="Análogo">Análogo</option>
+								<option value="Digital" selected>Digital</option>
+								<option value="Análogo y Digital">Análogo y Digital</option>						
+							</select>
+						</div>		
+						<div contenteditable="true" id="descripcionArtista" style="margin: 20px; background: #FFFDEE; border:1px solid #f6e77b;border-radius: 10px; padding: 10px;">
+							En esta zona realiza una autografía. Los usuarios buscan conocer al artista, comenta cómo llegaste a esta profesión, tus técnicas y experiencias.
+						</div>
+					</div>
+					
+					<div class="col-12" style="height: 20px;"></div>
+					<div class="col-12 row justify-content-center" >
+						<button onclick="submitFormUpdate()" class="btn btn-warning btn-sm">Actualizar información</button>&nbsp;
+						<button onclick="submitFormDelete()" class="btn btn-danger btn-sm">Eliminar cuenta</button>
+					</div>							
+				</div>
+			</div>
+			
+			
+		</div>
+	</div>
+
+	<!--Pie de página-->
+	<div style="background-color:#FFFDEE;height:380px;"></div>
+	<footer class=" text-center text-white fixed-bottom" style="background-color: #04253A; color: #FFFDEE;border-radius:25px 25px 0px 0px; ">
+		
+		<div class="container-md">
+			<div style="height:30px;"></div>
+			<!-- Section: Links -->
+			<section class="">
+			<!--Grid row-->
+				<div class="row justify-content-between">
+					
+				<!--Grid column-->
+				<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+					<div style="height:30px;"></div>
+					<ul class="list-unstyled mb-0">
+						<li>
+							<a href="#!" class="text-white">¿Quieres trabajar como artista?</a>
+						</li>
+						<li>
+							<a href="#!" class="text-white">Contáctanos: +57 000-000-000</a>
+						</li>
+						<li>
+							<a href="#!" class="text-white">Avenida #7 73c-No, Cajicá</a>
+						</li>
+					</ul>
+				</div>
+				<!--Grid column-->
+				<div style="margin:10px 2px; border-left:2px solid #FFFDEE;"></div>
+				<!--Grid column-->
+				<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+					<h5 >Síguenos en nuestras redes sociales</h5>	  
+					<!-- Section: Social media -->
+					<section class="mb-4"><br>
+						<!-- Instagram -->
+						<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+						><img src="./resources/instagram.svg"  width="25" height="25">
+						</a>
+						<!-- Instagram -->
+						<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+						><img src="./resources/facebook.svg"  width="25" height="25">
+						</a>
+						<!-- Instagram -->
+						<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+						><img src="./resources/twitter.svg"  width="25" height="25">
+						</a>
+						<!-- Instagram -->
+						<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+						><img src="./resources/gmail.svg"  width="25" height="25">
+						</a>
+					</section>
+				</div>
+				<!--Grid column-->
+				<div style="margin:10px 2px; border-left:2px solid #FFFDEE;"></div>
+				<!--Grid column-->
+				<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+					<div style="height:30px;"></div>
+					<ul class="list-unstyled mb-0">
+					<li>
+						<a href="#!" class="text-white">Términos y condiciones</a>
+					</li>
+					<li>
+						<a href="#!" class="text-white">Peticiones y reclamos</a>
+					</li>
+					<li>
+						<a href="#!" class="text-white">Preguntas frecuentes</a>
+					</li>
+					</ul>
+				</div>
+				<!--Grid column-->
+
+				</div>
+			<!--Grid row-->
+			</section>
+			<div style="height:30px;"></div>
+		  <!-- Copyright -->
+		  <div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.2);">
+		    © 2022 Copyright: <br>Karen Juliana Rincón, Tatiana Gómez Castillo
+		  </div>
+	</footer>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+	crossorigin="anonymous"></script>
+<script src="js/artista.js"></script>
+
+
+</html>

@@ -1,11 +1,7 @@
-// JQUERY consultar base de datos y mostrar en una tabla
 
-$("#table-tab").click(function()
-{
-    submitConsulta();
-});
+var correoLocal=localStorage.getItem("Correo");
 
-// JQUERY Insertar base de datos y mostrar en una tabla
+//ENTREGAS
 function cargarDatos(data){
     var rows = "";
     $("#dataTable tr").remove();
@@ -25,22 +21,9 @@ function cargarDatos(data){
 
     $("#dataTable").append(rows);
 }
-
-
-
-$(document).ready(function(){
-        $("#productoForm").submit(function(event){
-            //Cancels the from submission
-            console.log("entro");
-            event.preventDefault();
-            submitFormInsert();
-        });
-});
-
-
 function submitConsulta(){
 	console.log("Entró a llamar");
-	fetch('http://localhost:3000/getProductos',{
+	fetch('http://localhost:3000/getPedidos',{
 	method:	'GET',
 	headers:{
 		'Content-Type' : 'application/json'
@@ -56,49 +39,47 @@ function submitConsulta(){
         .catch(error => console.log('error: ' + error));
 }
 
-function submitFormInsert(){
-    var descripcion=$("#descripcion").val();
-    var costo=$("#costo").val();
-
-    var object={"descripcion":descripcion,"costo":costo};
-    console.log(object);
-
-    fetch('http://localhost:3000/createProducto',{
-        method: 'POST',
-        headers:{
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(object),
-        cache: 'no-cache'
-    })
-        .then(function (response){
-            console.log("Entró");
-            return response.text();
-        })
-        .then(function(data){
-            console.log(data);
-            if(data === "1"){
-                formSuccess("Insert");
-            }else{
-                alert("Error al insertar");
+//PERFIL
+function consultarArtista(){
+	console.log("Entró a llamar");
+	fetch('http://localhost:3000/getArtistas',{
+	method:	'GET',
+	headers:{
+		'Content-Type' : 'application/json'
+	}
+	}).then(response => response.json())
+        .then(result => {
+            if (result.length > 0) {
+                cargarDatosArtista(result);
+            } else {
+                console.log(JSON.stringify(result));
             }
         })
-        .catch(function (err){
-            console.error(err);
-        });
-} 
+        .catch(error => console.log('error: ' + error));
+}
+function cargarDatosArtista(data){
+    for (x in data) {
+        if(data[x].Correo==correoLocal){
+            document.getElementById("dropdownEx").textContent=data[x].Nombre;
+            document.getElementById("nombreartista").textContent=data[x].Nombre+" "+data[x].Apellido;
+            console.log(data[x].Nombre+" "+data[x].Apellido);
+            const $select = document.querySelector('#selectEstilo');
+            $select.value = data[x].TipoDeArte;
+            const $select2 = document.querySelector('#selectFormato');
+            $select2.value = data[x].FormatoDeArte;
+            document.getElementById("descripcionArtista").textContent=data[x].Biografia;
+        } 
+    }
+}
+function submitFormUpdate(){
+    var estiloArte=document.getElementById("selectEstilo").value;
+    var formatoArte=document.getElementById("selectFormato").value;
+    var descripcion=document.getElementById("descripcionArtista").textContent;
 
-function submitFormUpdate(id_Producto){
-    idDes="#D"+id_Producto;
-    idCos="#C"+id_Producto;
-    console.log(id_Producto);
-    var descripcion=$(idDes).val();
-    var costo=$(idCos).val();
-
-    var object={"descripcion":descripcion,"costo":costo,"idProducto":id_Producto};
+    var object={"Correo":correoLocal,"TipoDeArte":estiloArte,"Biografia":descripcion,"FormatoDeArte":formatoArte};
     console.log(object);
 
-    fetch('http://localhost:3000/updateProducto',{
+    fetch('http://localhost:3000/updateArtista',{
         method: 'PUT',
         headers:{
             'Content-Type': 'application/json'
@@ -114,7 +95,7 @@ function submitFormUpdate(id_Producto){
             console.log(data);
             if(data === "1"){
                 formSuccess("Update");
-                submitConsulta();
+                consultarArtista();
             }else{
                 alert("Error al actualizar");
             }
@@ -123,11 +104,9 @@ function submitFormUpdate(id_Producto){
             console.error(err);
         });       
 } 
-
-function submitFormDelete(id_Producto){
-    console.log(id_Producto);
-    var object={"idProducto":id_Producto};
-    fetch('http://localhost:3000/deleteProducto',{
+function submitFormDelete(){
+    var object={"Correo":correoLocal};
+    fetch('http://localhost:3000/deleteArtista',{
         method: 'DELETE',
         headers:{
             'Content-Type': 'application/json'
@@ -143,7 +122,8 @@ function submitFormDelete(id_Producto){
             console.log(data);
             if(data === "1"){
                 formSuccess("Delete");
-                submitConsulta();
+                consultarArtista();
+                location.href = "http://localhost:3000/index.html";
             }else{
                 alert("Error al eliminar");
             }
@@ -153,6 +133,50 @@ function submitFormDelete(id_Producto){
         });       
 } 
 
+//CATÁLOGO
+function submitFormUpdate(correo){
+    var nombre=$("#nombreusuario").val();
+    var apellido=$("#apellidousuario").val();
+    var fechaN=$("#fechaNusuario").val();
+    var telefono=$("#telefonousuario").val();
+    var direccion=$("#direccionusuario").val();
+
+    var object={"Correo":correo,"Apellido":apellido,"Nombre":nombre,"Telefono":telefono,"Direccion":direccion,"FechaNacimiento":fechaN};
+    console.log(object);
+
+    fetch('http://localhost:3000/updateArtista',{
+        method: 'PUT',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(object),
+        cache: 'no-cache'
+    })
+        .then(function (response){
+            console.log("Entró");
+            return response.text();
+        })
+        .then(function(data){
+            console.log(data);
+            if(data === "1"){
+                formSuccess("Update");
+            }else{
+                alert("Error al actualizar");
+            }
+        })
+        .catch(function (err){
+            console.error(err);
+        });       
+} 
+
+//CERRAR SESIÓN
+$(document).ready(function(){
+    $("#cerrar").click(function(event){
+        localStorage.removeItem('Correo');
+    });
+});
+
+//ALERTAS
 function formSuccess(proceso){
     if(proceso=="Insert"){
         alert("Producto registrado correctamente.");
@@ -165,5 +189,3 @@ function formSuccess(proceso){
     }
 	
 }
-
-    

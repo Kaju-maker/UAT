@@ -9,11 +9,11 @@
 		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 </head>
 
-<body>
+<body onload="consultarCliente()">
 	<!--Barra menú-->
-	<nav class="navbar-nav navbar-expand-sm navbar-dark justify-content-between align-items-center"
+	<nav class="navbar-nav navbar-expand-sm navbar-dark  justify-content-between align-items-center"
 		style="background-color: #04253A; color: #FFFDEE;">
-		<a class="btn" data-toggle="tab" href="#Home" role="tab" style="margin:0px 10px;">
+		<a class="nav-link" data-toggle="tab" href="#Home" role="tab" aria-controls="home" aria-selected="false" style="margin:0px 10px;">
 			<img src="./resources/logo.svg" width="40" height="40">
 		</a>
 		  
@@ -39,16 +39,21 @@
 				<li class="nav-item">
 					<a class="nav-link" id="Contactanos-tab" data-toggle="tab" href="#Contactanos" role="tab" aria-controls="Contactanos"
 						aria-selected="false">Contáctanos</a>
-				</li>
-
+				</li>				
 				<div style="margin:10px 5px; border-left:2px solid #FFFDEE;"></div>
+				<li class="nav-item">
+					<a class="nav-link" id="pedidoscliente-tab" data-toggle="tab" href="#Table" role="tab" aria-controls="Table"
+						aria-selected="false">Pedidos</a>
+				</li>
+				<li class="nav-item dropdown" id="cliente-tab">
+					<a class="nav-link dropdown-toggle " href="#!" id="dropdownEx" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">Usuario</a>
+					<div class="dropdown-menu" aria-labelledby="dropdownEx" style="background-color:#04253A;">
+						<a class="dropdown-item" id="PerfilCliente-tab" href="#PerfilCliente" data-toggle="tab" style="color: #FFFDEE;">Perfil</a>
+						<a class="dropdown-item" id="cerrar" href="index.html" style="color: #FFFDEE;">Cerrar sesión</a>
+					</div>
+				</li>
 
-				<li class="nav-item">
-					<a class="btn btn-outline-secondary" id="buttonRegistro" data-toggle="modal" data-target="#RegistroModal"  role="modal" aria-selected="false" style="color: #ffffffa1;border:none">Registrarse</a>
-				</li>
-				<li class="nav-item">
-					<a class="btn btn-outline-secondary" id="buttonInicio" data-toggle="modal" data-target="#IniciodeSesionModal"  role="modal" aria-selected="false" style="color: #ffffffa1;border:none">Iniciar Sesión</a>
-				</li>
 			</ul>
 		</div>
 	</nav>
@@ -364,6 +369,95 @@
 			<div style="background-color:#FFFDEE;height:30px;"></div>
 		</div>
 
+		<!--Pedidos-->
+		<div class="tab-pane fade" id="Table" role="tabpanel" aria-labelledby="table-tab" style="background-color:#FFFDEE;">
+			<div class="row justify-content-center" >
+				<div class="col-12" style="height:10px;"></div>
+				<h1 class="modal-title" style="color: #04253A;font-weight: bold;border-bottom: 5px solid#187F75; padding:0 20px 0 20px;">Pedidos</h1>				
+				<div class="col-12" style="height:20px;"></div>
+			</div>
+			<div class="container-sm">
+				<div class="table-responsive">
+					<table class="table table-striped"  id="dataTable" >
+						<thead style="color: #04253A;">
+							<tr>
+								<th>Artista</th>
+								<th>Descripción obra</th>
+								<th>Precio</th>
+								<th>Fecha de entrega</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="danger">
+								<td>Danger</td>
+								<td>Moe</td>
+								<td>$54315331</td>
+								<td>31/05/77</td>
+							</tr>
+							<tr class="info">
+								<td>Info</td>
+								<td>Dooley</td>
+								<td>$54315331</td>
+								<td>31/05/77</td>
+							</tr>
+							<tr class="warning">
+								<td>Warning</td>
+								<td>Refs</td>
+								<td>$54315331</td>
+								<td>31/05/77</td>
+							</tr>
+							<tr class="active">
+								<td>Active</td>
+								<td>Activeson</td>
+								<td>$54315331</td>
+								<td>31/05/77</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			
+		</div>
+
+		<!--Perfil cliente-->
+		<div class="tab-pane fade" id="PerfilCliente" role="tabpanel" aria-labelledby="PerfilCliente-tab" style="background-color:#FFFDEE;">
+			<div class="row justify-content-center" >
+				<div class="col-12" style="height:10px;"></div>
+				<h1 class="modal-title" style="color: #04253A;font-weight: bold;border-bottom: 5px solid#187F75; padding:0 20px 0 20px;">Perfil</h1>				
+				<div class="col-12" style="height:20px;"></div>
+			</div>
+			<div class="row justify-content-center align-items-center">
+				<div class="col-md-8 row justify-content-center align-items-center">
+					<div class="col-5">
+						<label for="nombreusuario" class="h5">Nombre:</label><br>
+						<input type="text" class="form-control" id="nombreusuario" value="Pepito" required><br>
+					</div>
+					<div class="col-5">
+						<label for="apellidousuario" class="h5">Apellido:</label><br>
+						<input type="text" class="form-control" id="apellidousuario" value="Perez" required><br>
+					</div>
+					<div class="col-5">
+						<label for="fechaNusuario" class="h5">Fecha de nacimiento:</label><br>
+						<input type="date" class="form-control" id="fechaNusuario" value="2019-08-10" required><br>
+					</div>
+					<div class="col-5">
+						<label for="telefonousuario" class="h5">Número de celular:</label><br>
+						<input type="tel" class="form-control" id="telefonousuario" value="3315468387" required><br>
+					</div>
+					<div class="col-5">
+						<label for="direccionusuario" class="h5">Dirección de residencia:</label><br>
+						<input type="text" class="form-control" id="direccionusuario" value="Cra 10, Parsk kas" required><br>
+					</div>										
+				</div>
+				<div class="col-5 row justify-content-center" >
+					<button onclick="submitFormUpdate()" class="btn btn-warning btn-sm">Actualizar información</button>&nbsp;
+					<button onclick="submitFormDelete()" class="btn btn-danger btn-sm">Eliminar cuenta</button>
+				</div>
+			</div>
+			
+			
+		</div>
+
 		<!--Página Catálogos-->
 		<div class="tab-pane fade" id="Catalogos" role="tabpanel" aria-labelledby="Catalogos-tab" style="background-color:#FFFDEE;">
 			<div class="row justify-content-center" >
@@ -399,47 +493,43 @@
 		</div>
 	</div>
 
-
-    <!--Inicio de sesión Modal-->
-	<div class="modal fade" id="IniciodeSesionModal">
+	 <!--Comprar Modal-->
+	 <div class="modal fade" id="ComprarModal">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content" style="background-color: #FFFDEE;">
 				<div class="row justify-content-center" >
 					<div class="col-10" style="background-color:#FFFDEE;height:10px;"></div>
-					<h3 class="modal-title" style="color: #04253A;font-weight: bold;border-bottom: 5px solid#187F75; padding:0 20px 0 20px;">Inicio de sesión</h3>				
+					<h3 class="modal-title" style="color: #04253A;font-weight: bold;border-bottom: 5px solid#187F75; padding:0 20px 0 20px;">Comprar obra</h3>				
 				</div>
-				<form action="" id="FormInicio">
+				<form action="" id="FormComprar">
 					<div class="modal-body">
 						<div class="row justify-content-center align-items-center">
 							<div class="form-group row mb-8 justify-content-center"  style="color: #04253A; font-weight: bold;">
 								<div class="col-10" style="background-color:#FFFDEE;height:20px;"></div>
-								<div class="col-10 row justify-content-end">
-									<div class="custom-control custom-switch">
-										<input type="checkbox" class="custom-control-input" id="esartista" value="indexArtista.html">
-										<label class="custom-control-label" for="esartista" style="font-weight: normal;">
-										  Artista
-										</label>
+								<div class="col-10">
+									<h4>Descripción de idea:</h4>
+									<div contenteditable="true" id="descripcionPedido" style="margin: 20px; background: #FFFDEE; border:1px solid #f6e77b;border-radius: 10px; padding: 10px;font-weight: normal;">En esta zona realiza una descripción de tu idea. Los artistas buscan entenderte, comenta trazos, colores, texturas, perspectivas y lo que se te venga en mente.</div>
+								</div>	
+								<div class="col-10">
+									<h4>Paleta de colores:</h4>
+									<div class="col-5 row justify-content-around">
+									<label for="">Color 1:</label>
+									<input type="color" id="color1">
+									<label for="">Color 2:</label>
+									<input type="color" id="color2">
+									<label for="">Color 3:</label>
+									<input type="color" id="color3">
+									<label for="">Color 4:</label>
+									<input type="color" id="color4">
+									<label for="">Color 5:</label>
+									<input type="color" id="color5">
 									</div>
-								</div>
-								<div class="col-10">
-									<label for="correoinicio" class="h5">Correo electrónico:</label><br>
-									<input type="email" class="form-control" id="correoinicio" placeholder="Ingrese su correo electrónico" required><br>
-								</div>						
-								<div class="col-10">
-									<label for="claveinicio" class="h5">Contraseña:</label><br>
-									<input type="password" class="form-control" id="claveinicio" placeholder="Ingrese su contraseña" required><br>
-								</div>
-								<div id="crearCuentaBoton" class="col-10 row justify-content-center text-center">
-									<a href="" data-dismiss="modal" data-toggle="modal" data-target="#RegistroModal" style="color:#04253A;font-weight: normal;">Crear cuenta</a>
-								</div>
-								<div class="col-10 row justify-content-center">
-									<a href="" type="button" data-toggle="modal" data-target="" style="color:#04253A;font-weight: normal;">¿Olvidó su contraseña?</a>
-								</div>												
+								</div>																	
 							</div>
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button  type="submit" id="formInicio-submit" class="btn btn-primary pull-right" data-toggle="modal" >Iniciar</button>
+						<button  type="submit" id="formInicio-submit" class="btn btn-primary pull-right" data-toggle="modal" >Finalizar compra</button>
 						<button  class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 					</div>
 				</form> 
@@ -447,63 +537,6 @@
 		</div>
 	</div>
 
-	<!--Registro de cuenta Modal-->
-	<div class="modal fade" id="RegistroModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content" style="background-color: #FFFDEE;">
-				<div class="row justify-content-center" >
-					<div class="col-10" style="background-color:#FFFDEE;height:10px;"></div>
-					<h3 class="modal-title" style="color: #04253A;font-weight: bold;border-bottom: 5px solid#187F75; padding:0 20px 0 20px;">Crear cuenta</h3>				
-				</div>
-				<form action="" id="FormRegistro">
-					<div class="modal-body">
-						<div class="row justify-content-center align-items-center">
-							<div class="form-group row mb-8 justify-content-center"  style="color: #04253A; font-weight: bold;">
-								<div class="col-10" style="background-color:#FFFDEE;height:20px;"></div>
-								<div class="col-5">
-									<label for="nombre" class="h5">Nombre:</label><br>
-									<input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre" required><br>
-								</div>						
-								<div class="col-5">
-									<label for="apellido" class="h5">Apellido:</label><br>
-									<input type="text" class="form-control" id="apellido" placeholder="Ingrese su apellido" required><br>
-								</div>
-								<div class="col-10">
-									<label for="correo" class="h5">Correo:</label><br>
-									<input type="email" class="form-control" id="correo" placeholder="Ingrese su correo" required><br>
-								</div>
-								<div class="col-10">
-									<label for="telefono" class="h5">Teléfono:</label><br>
-									<input type="tel" class="form-control" id="telefono" placeholder="Ingrese su número de celular" required><br>
-								</div>								
-								<div class="col-10">
-									<label for="fechaN" class="h5">Fecha de nacimiento:</label><br>
-									<input type="date" class="form-control" id="fechaN" required><br>
-								</div>
-								<div class="col-10">
-									<label for="direccion" class="h5">Dirección de residencia:</label><br>
-									<input type="text" class="form-control" id="direccion" placeholder="Ingrese su dirección (Opcional)"><br>
-								</div>
-								<div class="col-10">
-									<label for="clave" class="h5">Contraseña:</label><br>
-									<input type="password" class="form-control" id="clave" placeholder="Ingrese una nueva contraseña" required><br>
-								</div>
-								<div class="col-10">
-									<label for="confirmarClave" class="h5">Confirmación de contraseña:</label><br>
-									<input type="password" class="form-control" id="confirmarClave" placeholder="Ingrese nuevamente la contraseña" required>
-								</div>															
-							</div>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button  type="submit" id="form-submit" class="btn btn-primary pull-right" >Registrarse</button>
-						<button  class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-					</div>
-				</form> 
-			</div>
-		</div>
-	</div>
-	
 	<!--Catalogo Modal-->
 	<div class="modal fade" id="PerfilA">
 		<div class="modal-dialog modal-dialog-centered" role="document">
@@ -537,7 +570,7 @@
 							
 							<div class="col-12" style="height: 20px;"></div>
 							<div class="col-12 row justify-content-center" >									
-								<a class="btn" href="" data-dismiss="modal" data-toggle="modal" data-target="#RegistroModal" style="color:#FFFDEE; font-weight: bold; background-color:#187F75;border:none; padding: 3px 15px;">¡Comprar ahora!</a>
+								<a class="btn" href="" data-dismiss="modal" data-toggle="modal" data-target="#ComprarModal" style="color:#FFFDEE; font-weight: bold; background-color:#187F75;border:none; padding: 3px 15px;">¡Comprar ahora!</a>
 							</div>	
 							<div class="col-12" style="background-color:#FFFDEE;height:30px;"></div>						
 						</div>
@@ -557,9 +590,9 @@
 			<section class="">
 			<!--Grid row-->
 				<div class="row justify-content-between">
-				
+					
 				<!--Grid column-->
-				<div id="contactos" class="navbar-collapse col-lg-3 col-md-6 mb-4 mb-md-0 ">
+				<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
 					<div style="height:30px;"></div>
 					<ul class="list-unstyled mb-0">
 						<li>
@@ -626,7 +659,6 @@
 		    © 2022 Copyright: <br>Karen Juliana Rincón, Tatiana Gómez Castillo
 		  </div>
 	</footer>
-	
 </body>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -635,6 +667,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
 	crossorigin="anonymous"></script>
-<script src="js/main.js"></script>
+<script src="js/cliente.js"></script>
 
 </html>
