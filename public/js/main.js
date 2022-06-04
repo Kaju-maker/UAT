@@ -69,10 +69,21 @@ $(document).ready(function(){
         $("#FormRegistro").submit(function(event){
             //Cancels the from submission
             console.log("entro");            
-            submitFormInsert();
+            validarClave(event);
         });
 });
 
+function validarClave(event){
+	var password=document.getElementById("clave").value;
+  	var copassword=document.getElementById("confirmarClave").value;
+	if(password!=copassword && password.length!=0){ 
+		document.getElementById("clave").style.border = "1px solid red";
+		document.getElementById("confirmarClave").style.border = "1px solid red";
+        event.preventDefault();
+	}else if(password.length!=0){
+		submitFormInsert();
+	}
+}
 function submitFormInsert(){
     var nombre=$("#nombre").val();
     var apellido=$("#apellido").val();

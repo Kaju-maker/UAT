@@ -1,6 +1,7 @@
 'use strict';
 var dbConn=require('../../config/dbConnection');
 
+//const CONSULTA="SELECT * FROM Pedido";
 const CONSULTA="SELECT c.IdPedido, c.Descripcion, c.Precio, c.Color1, c.Color2, c.Color3,c.Color4 ,c.Color5 ,c.FechaEntrega FROM Pedido c";
 const INSERT = "INSERT INTO Pedido set ?";
 const UPDATE = "UPDATE Pedido SET Descripcion = ?, Precio = ?,Color1 = ?, Color2 = ?, Color3 = ?, Color4 = ?, Color5 = ?, FechaEntrega = ? WHERE fk_artista1 = ?";

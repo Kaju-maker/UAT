@@ -48,7 +48,7 @@ function submitFormInsertPedido(){
     let date = new Date();
     var FechaEntrega=date.getFullYear()+"-"+ String(date.getMonth() + 1).padStart(2, '0')+"-"+String(date.getDate()+10).padStart(2, '0') ;
     var IdPedido=0;
-    var object={"IdPedido":IdPedido,"Descripcion":descripcion,"Precio":precio,"Color1":color1,"Color2":color2,"Color3":color3,"Color4":color4,"Color5":color5,"FechaEntrega":FechaEntrega};
+    var object={"IdPedido":IdPedido,"Descripcion":descripcion,"Precio":precio,"Color1":color1,"Color2":color2,"Color3":color3,"Color4":color4,"Color5":color5,"FechaEntrega":FechaEntrega,"fk_artista1":"pepea@gmail.com","fk_cliente1":correoLocal};
     console.log(object);
 
     fetch('http://localhost:3000/createPedido',{
@@ -82,6 +82,7 @@ $(document).ready(function(){
         console.log("entro");        
         event.preventDefault();
         submitFormInsertPedido();
+        $('#FormComprar').modal('hide');
     });
 });
 

@@ -13,6 +13,8 @@ var pedido=function(Pedido){
     this.Color5=Pedido.Color5;
     this.Color5=Pedido.Color5;
     this.FechaEntrega=Pedido.FechaEntrega;
+    this.fk_artista1=Pedido.fk_artista1;
+    this.fk_cliente1=Pedido.fk_cliente1;
 }
 
 pedido.readAll= (result) =>{
