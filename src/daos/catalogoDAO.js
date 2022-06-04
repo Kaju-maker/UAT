@@ -1,7 +1,7 @@
 'use strict';
 var dbConn=require('../../config/dbConnection');
 
-const CONSULTA="SELECT c.IdCatalogo, c.TipoDeArte, c.Precio, c.fk_artista, o.IdObra, o.ImagenObra, FROM Catalogo c, Obra o WHERE c.IdCatalogo=o.fk_Catalogo";
+const CONSULTA="SELECT c.IdCatalogo, c.TipoDeArte, c.Precio, c.fk_artista, o.IdObra, o.ImagenObra FROM Catalogo c, Obra o WHERE o.fk_Catalogo=c.IdCatalogo";
 const INSERT = "INSERT INTO Catalogo set ?";
 const INSERTOBRA = "INSERT INTO Obra set ?";
 const UPDATE = "UPDATE Catalogo SET TipoDeArte = ?,Precio = ? WHERE fk_artista = ?";

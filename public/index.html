@@ -370,6 +370,7 @@
 				<div class="col-12" style="height:10px;"></div>
 				<h1 class="modal-title" style="color: #04253A;font-weight: bold;border-bottom: 5px solid#187F75; padding:0 20px 0 20px;">Catálogos </h1>				
 				<div class="col-12" style="height:20px;"></div>
+				<div style="margin-bottom:30px;">
 				<label for="estiloarte" class="h5">Estilo de arte: &nbsp;</label>
 				<select id="estilo" name="estiloarte" style="background: #FFFDEE; border-color:#187F75;border-radius: 10px; padding: 3px;">
 					<option value="e8" selected>Todos</option>
@@ -382,12 +383,56 @@
 					<option value="e7">Urbano</option>	
 					<option value="e7">Otros</option>				
 				</select>
+				</div>
 			</div>
-			<div id="listaCatalogos" class="row justify-content-center align-items-center">
-				<p style="margin-top:50px;">Por el momento no hay catálogos.</p>
+			<div id="listaCatalogos" class="table-responsive">
+				<table class="table"  id="dataTableCatalogos" style="border:none;">
+					<thead>
+						<tr>
+							<th class="text-center">Por el momento no hay catálogos.</th>
+						</tr>
+					</thead>
+					<tbody>						
+					</tbody>
+				</table>				
 			</div>
 		</div>
 
+		<!--Página Catálogo-->
+		<div class="tab-pane fade" id="PerfilArtista" role="tabpanel" aria-labelledby="Catalogos-tab" style="background-color:#FFFDEE;">
+			<div class="row justify-content-center" >
+				<div class="col-12" style="height:10px;"></div>
+				<h1 id="nombreartista" class="modal-title" style="color: #04253A;font-weight: bold;border-bottom: 5px solid#187F75; padding:0 20px 0 20px;">Nombre Artista</h1>				
+				<div class="col-12" style="height:20px;"></div>
+			</div>
+			<div class="row justify-content-center align-items-center">
+				<div class="col-md-10 row justify-content-center align-items-center">
+					<div class="col-6 row justify-content-around" id="catalogo">
+						<div class="col-6" >
+							<img scr="" id="ImagenCatalogo1" width="100" height="100" style="border:1px solid#187F75; border-radius:10px;">
+						</div>							
+					</div>
+					<div class="col-6">
+						<div style="margin:20px;">
+							<label for="estiloarte" class="h5">Estilo de arte: </label>
+							<p id="estilodearte"></p>
+						</div>
+						<div style="margin:20px;">
+							<label for="formatodearte" class="h5">Formato(s) de su arte: </label>
+							<p id="formatodearte"></p>
+						</div>		
+						<div id="descripcionArtista" style="margin: 20px; background: #FFFDEE; border:1px solid #f6e77b;border-radius: 10px; padding: 10px;">
+							Biografía del artista.
+						</div>
+					</div>
+					
+					<div class="col-12" style="height: 20px;"></div>
+					<div class="col-12 row justify-content-center" >									
+						<button id="buttonComprarAhoraSN" onclick="" style="background-color:#FFFDEE; font-weight: bold; color:#187F75;border:none; padding: 3px 15px;">¡Comprar ahora!</button>
+					</div>							
+				</div>
+			</div>
+				
 	</div>
 
 

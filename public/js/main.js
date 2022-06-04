@@ -1,4 +1,3 @@
-
 // CLIENTE
 function verificarDatos(data){
     var correo=$("#correoinicio").val();
@@ -147,7 +146,8 @@ function consultarArtista(event){
         })
         .catch(error => console.log('error: ' + error));
 }
-function consultarArtistaCatalogo(fk_artista){
+
+function consultarArtistaPerfil(fk_artista,imagen){
 	console.log("Entró a llamar");
 	fetch('http://localhost:3000/getArtistas',{
 	method:	'GET',
@@ -157,17 +157,28 @@ function consultarArtistaCatalogo(fk_artista){
 	}).then(response => response.json())
         .then(result => {
             if (result.length > 0) {
-                for (x in result){
-                    if(fk_artista==result[x].Correo){
-                        return result[x];
-                    }
-                }
+                cargarPerfil(result,fk_artista,imagen);
             } else {
                 console.log(JSON.stringify(result));
             }
         })
         .catch(error => console.log('error: ' + error));
 }
+function cargarPerfil(data,fk_artista,imagen){
+    console.log("Entro A carga perfil");
+    for (x in data) {
+        if(data[x].Correo==fk_artista){
+            document.getElementById("ImagenCatalogo1").src=imagen;
+            document.getElementById("nombreartista").textContent=data[x].Nombre+" "+data[x].Apellido;    
+            document.getElementById("estilodearte").textContent= data[x].TipoDeArte;            
+            document.getElementById("formatodearte").textContent= data[x].FormatoDeArte;
+            document.getElementById("descripcionArtista").textContent=data[x].Biografia;
+            break;
+        } 
+    }
+    activaTab("PerfilArtista");
+}
+
 
 // SWITCH INICIO DE SESIÓN
 function formIniciaraction(event){
@@ -194,35 +205,36 @@ function cargarDatos(data){
     var rows = "";
     var estilo=document.getElementById("estilo");
     var estiloselected = estilo.options[estilo.selectedIndex].text;
-
-    $("#listaCatalogos").remove();
+    $("#dataTableCatalogos tr").remove();
     if(estiloselected=="Todos"){
-        for (x in data) {
-            Artista=consultarArtistaCatalogo(data[x].fk_artista);
-            Nombre=Artista.Nombre+" "+Artista.Apellido;
-            rows +=`<div class="card" style="width: 16rem; background-color: #FFFDEE;"><div class="card bg-dark text-white"><img src="${dato[x].ImagenObra}" class="card-img" alt="..."><div class="card-img-overlay"><a class="card-title" id="${dato[x].fk_artista}">${Nombre}</a></div></div></div>`
+        console.log("Entro a todos");
+        var cont=1;
+        
+        for (x in data) {            
+            var Precio=data[x].Precio;
+            if(cont=1){            
+                rows += "<tr>";
+            }
+            rows +=`<td><button id="${data[x].fk_artista}" onclick="consultarArtistaPerfil(${data[x].fk_artista},${data[x].ImagenObra});" style="border:none; background-color:transparent;"><div class="card" style="width: 16rem; background-color: #FFFDEE;"><div class="card text-white"><img src="${data[x].ImagenObra}" class="card-img" alt="..."><div class="card-img-overlay"><h5 class="card-title">${data[x].TipoDeArte}</h5></div><div class="btncard-body rounded" style="margin:2%; background-color:#187F75;" ><h5 class="row justify-content-center align-items-center" style="color:#04253A">${" $"+Precio}</h5></div></div></div></button></td>`;
+            if(cont>=4){       
+                console.log("Entro a cerrar");     
+                rows += "</tr>";
+                console.log(rows);
+                cont=0;
+            }
+            cont+=1;
          }
     }else{
+        console.log("Entro a otros");
         for (x in data) {
             if(data[x].TipoDeArte==estiloselected){
-                Artista=consultarArtistaCatalogo(data[x].fk_artista);
-                Nombre=Artista.Nombre+" "+Artista.Apellido;
-                rows +=`<div class="card" style="width: 16rem; background-color: #FFFDEE;"><div class="card bg-dark text-white"><img src="${dato[x].ImagenObra}" class="card-img" alt="..."><div class="card-img-overlay"><a class="card-title" id="${dato[x].fk_artista}">${Nombre}</a></div></div></div>`
-            }
-            /* var idDes="D"+data[x].idProducto;
-             var idCos="C"+data[x].idProducto;
-     
-             rows += `<tr><td>${data[x].idProducto}</td>
-             <td><input type="text" id="${idDes}" value="${data[x].descripcion}" style="background-color:transparent;border:none;color:white;"></td>
-             <td><input type="text" id="${idCos}" value="${data[x].costo}" style="background-color:transparent;border:none;color:white;"></td>
-             <td class="text-center"><button onclick="submitFormUpdate(${data[x].idProducto})" class="btn btn-warning btn-sm">Actualizar</button>&emsp;
-             <button onclick="submitFormDelete(${data[x].idProducto})" class="btn btn-danger btn-sm">Eliminar</button></td></tr>`;  */             
+                var Precio=data[x].Precio;
+                rows +=`<div class="card" style="width: 16rem; background-color: #FFFDEE;"><div class="card bg-dark text-white"><img src="${data[x].ImagenObra}" class="card-img" alt="..."><div class="card-img-overlay"><a class="card-title" id="${data[x].fk_artista}">${Precio}</a></div></div></div>`;
+            }             
          }
     }
 
-    
-
-    $("#listaCatalogos").append(rows);
+    $("#dataTableCatalogos").append(rows);
 }
 
 function submitConsulta(){
@@ -242,6 +254,8 @@ function submitConsulta(){
         })
         .catch(error => console.log('error: ' + error));
 }
+
+
 
 // ALERTAS
 function formSuccess(proceso){
